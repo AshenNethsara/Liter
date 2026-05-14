@@ -26,12 +26,13 @@ try:
 
     if output_formats.get(desired_format_no):
         desired_format = f".{output_formats.get(desired_format_no).lower()}"
+        output_file = os.path.splitext(file_path)[0]+ "_converted" + desired_format
+        img.save(output_file)
+        print("File saved successfully!")
     else:
         print("\n-----------------\n| Wrong option! |\n-----------------\n")
 
-    output_file = os.path.splitext(file_path)[0] + desired_format
-    img.save(output_file)
-    print("File saved successfully!")
+
     img.close()
 except OSError:
     print("\n-------------------\n| File not found! |\n-------------------\n")
