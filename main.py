@@ -1,9 +1,20 @@
 # Liter -  Simple Image Converter
-# Version 1.0
+# Batch processing is supported
+# Version 1.2, 2026/5/16
 # 2026.5.2 Ashen Nethsara
 
-from converter import *
+import time, os, converter
 
-file_path = input("\nEnter the file path (with extension): ")
+print(f"\nMenu\n1. Convert a single file\n2. Batch processing\n")
+time.sleep(0.2)
+option = int(input("Enter number: "))
 
-image_convert(file_path)
+if option == 1:
+    time.sleep(0.5)
+    #print("\033[H\033[J", end="") speed way for clear the text in terminal
+    os.system('cls' if os.name == 'nt' else 'clear')
+    converter.single_file_processing()
+elif option == 2:
+    time.sleep(0.5)
+    os.system('cls' if os.name == 'nt' else 'clear')
+    converter.batch_files_processing()
